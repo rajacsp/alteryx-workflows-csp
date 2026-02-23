@@ -11,6 +11,37 @@ In this repository, you will find:
 - **Documentation**: Guides, tutorials, and explanations on how to use, customize, and deploy the workflows.
 - **Scripts**: Any additional scripts or tools used alongside Alteryx workflows.
 
+## Airflow DAG Conversion
+
+This repository includes a tool to convert Alteryx workflows to Apache Airflow DAGs:
+
+- **`alterxy2airflow.py`**: Python script that converts `.yxmd` files to Airflow DAG Python files
+
+### Usage
+
+```bash
+# Convert a single workflow
+python alterxy2airflow.py "Accident Workflow.yxmd" "accident_dag.py"
+
+# Convert all workflows in a directory
+python alterxy2airflow.py --all "path/to/workflows" "output/dir"
+```
+
+### Supported Tools
+
+The converter supports the following Alteryx tool types:
+- File Input/Output (CSV, Excel)
+- Formula
+- Filter
+- Sort
+- Sample
+- Summarize/Aggregate
+- Browse
+- Multi-Row Formula
+- Table Composer
+- Charts
+- Macro Input/Output
+
 ## Usage
 
 To utilize the Alteryx workflows in this repository:
