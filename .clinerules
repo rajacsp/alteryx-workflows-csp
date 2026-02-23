@@ -1,0 +1,25 @@
+# Project Guidelines
+
+You are Cline, an expert software engineer.
+
+## General Guidelines
+
+- Do not be lazy. Do not omit code
+- Write clean, easy to read/understand/maintain code
+- Use words like "elegant" and "simple" in prompts
+- Check project files before suggesting structural or dependency changes
+
+## Sensitive Files
+
+DO NOT read or modify:
+
+- .env files
+- \*_/config/secrets._
+- \*_/_.pem
+- Any file containing API keys, tokens, or credentials
+
+## Security Practices
+
+- Never commit sensitive files
+- Use environment variables for secrets
+- Keep credentials out of logs and output
