@@ -11,25 +11,79 @@ In this repository, you will find:
 - **Documentation**: Guides, tutorials, and explanations on how to use, customize, and deploy the workflows.
 - **Scripts**: Any additional scripts or tools used alongside Alteryx workflows.
 
-## Airflow DAG Conversion
+## Workflow Conversion Tools
 
-This repository includes a tool to convert Alteryx workflows to Apache Airflow DAGs:
+This repository includes three conversion tools for different workflows:
 
-- **`alterxy2airflow.py`**: Python script that converts `.yxmd` files to Airflow DAG Python files
+### 1. Alteryx to Airflow DAG (`alterxy2airflow.py`)
 
-### Usage
+Directly converts Alteryx `.yxmd` files to Apache Airflow DAG Python files.
 
+**Usage:**
 ```bash
 # Convert a single workflow
 python alterxy2airflow.py "Accident Workflow.yxmd" "accident_dag.py"
 
 # Convert all workflows in a directory
-python alterxy2airflow.py --all "path/to/workflows" "output/dir"
+python alterxy2airflow.py --all "." "output/dags"
 ```
 
-### Supported Tools
+### 2. Alteryx to Markdown (`alt2md.py`)
 
-The converter supports the following Alteryx tool types:
+Converts Alteryx `.yxmd` files to Markdown documentation with Mermaid flowchart diagrams.
+
+**Usage:**
+```bash
+# Convert a single workflow to markdown
+python alt2md.py "Accident Workflow.yxmd" "accident_workflow.md"
+
+# Convert all workflows in a directory
+python alt2md.py --all "." "docs"
+```
+
+**Output:** Generates comprehensive documentation including:
+- Workflow overview and metadata
+- Mermaid flowchart diagram
+- Detailed tool configurations
+- Data flow analysis
+
+### 3. Markdown to Airflow DAG (`md2af.py`)
+
+Converts Markdown documentation (with Mermaid diagrams) to Apache Airflow DAG Python files.
+
+**Usage:**
+```bash
+# Convert a single markdown file
+python md2af.py "accident_workflow.md" "accident_dag.py"
+
+# Convert all markdown files in a directory
+python md2af.py --all "docs" "output/dags"
+```
+
+### Complete Conversion Pipeline
+
+You can use these tools in sequence for a complete workflow:
+
+```bash
+# Step 1: Convert Alteryx to Markdown (for documentation/review)
+python alt2md.py "Ted talk Workflow.yxmd" "ted_talk.md"
+
+# Step 2: Review and edit the markdown if needed
+# (Edit ted_talk.md to add notes, modify configurations, etc.)
+
+# Step 3: Convert Markdown to Airflow DAG
+python md2af.py "ted_talk.md" "ted_talk_dag.py"
+```
+
+Or convert directly:
+```bash
+# Direct conversion: Alteryx to Airflow
+python alterxy2airflow.py "Ted talk Workflow.yxmd" "ted_talk_dag.py"
+```
+
+### Supported Alteryx Tools
+
+The converters support the following Alteryx tool types:
 - File Input/Output (CSV, Excel)
 - Formula
 - Filter
@@ -41,6 +95,10 @@ The converter supports the following Alteryx tool types:
 - Table Composer
 - Charts
 - Macro Input/Output
+- Join, Union, Select
+- Data Cleansing
+- Running Total
+- Transpose, Cross Tab
 
 ## Usage
 
