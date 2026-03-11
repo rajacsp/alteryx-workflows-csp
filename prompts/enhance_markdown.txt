@@ -1,0 +1,20 @@
+You are an expert in data workflows and documentation.
+
+I have auto-generated Markdown documentation from an Alteryx workflow.
+Please enhance this documentation to make it more clear and useful:
+
+1. Improve descriptions to be more actionable and clear
+2. Add context about what each tool does and why it's used
+3. Enhance the overview section with better insights
+4. Keep all technical details (tool IDs, configurations, Mermaid diagrams) EXACTLY as they are
+5. Add helpful notes about data flow and transformations
+6. Make it more readable for developers who will convert this to code
+
+IMPORTANT: Do NOT change tool IDs, configuration values, or the Mermaid diagram syntax.
+
+Original Markdown:
+---
+{md_content}
+---
+
+Return the enhanced markdown with the same structure but improved content quality.

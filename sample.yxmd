@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2023.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="18" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>US_Accidents_March23.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ID" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Source" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Severity" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Start_Time" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="End_Time" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Start_Lat" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Start_Lng" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="End_Lat" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="End_Lng" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Distance(mi)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Description" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Street" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="City" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="County" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="State" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Zipcode" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Country" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Timezone" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Airport_Code" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Weather_Timestamp" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Temperature(F)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Wind_Chill(F)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Humidity(%)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Pressure(in)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Visibility(mi)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Wind_Direction" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Wind_Speed(mph)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Precipitation(in)" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Weather_Condition" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Amenity" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Bump" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Crossing" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Give_Way" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Junction" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="No_Exit" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Railway" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Roundabout" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Station" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Stop" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Traffic_Calming" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Traffic_Signal" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Turning_Loop" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Sunrise_Sunset" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Civil_Twilight" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Nautical_Twilight" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+            <Field name="Astronomical_Twilight" size="254" source="File: C:\Users\ash_s\Downloads\archive (8)\US_Accidents_March23.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="138" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="ID" action="CountDistinct" rename="No_of_accidents" />
+            <SummarizeField field="Timezone" action="GroupBy" rename="Timezone" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="198" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ash_s\AppData\Local\Temp\Engine_31564_04fa55e9428b2547ac0d17cddd637042_\Engine_31564_c797c874f1b68d4fa515df5b82c4a128~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="78" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ash_s\AppData\Local\Temp\Engine_31564_04fa55e9428b2547ac0d17cddd637042_\Engine_31564_8d0b1cc3fc1b5a459b0e900d40f24fee~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="234" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotNull</Operator>
+            <Field>Timezone</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2024-02-23 15:37:51</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2024-02-23 15:37:51</StartDate>
+              <EndDate>2024-02-23 15:37:51</EndDate>
+              <Operand>Serious</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([Timezone])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="546" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ash_s\AppData\Local\Temp\Engine_31564_04fa55e9428b2547ac0d17cddd637042_\Engine_31564_19843c48a7fc7b4d97c7a09caaab3202~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="354" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="REGEX_Replace([Timezone],&quot;US/&quot;,&quot; &quot;)" field="Timezone" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Timezone = REGEX_Replace([Timezone],"US/"," ")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings>
+        <Position x="450" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"Timezone"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings>
+        <Position x="618" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="BatchMacroGroupBy"><![CDATA[Control=Timezone
+Input2=Timezone
+]]></Value>
+          <Value name="Input.Input2"><![CDATA[Zone=Timezone
+]]></Value>
+          <Value name="ControlParams"><![CDATA[Control Parameter (5)=Timezone
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>accident-macro (21)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="accident-macro.yxmc" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="True" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output26" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output26" />
+      <Destination ToolID="22" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output26" />
+      <Destination ToolID="22" Connection="Input2" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Accident Workflow</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="a3693039-af78-4762-86a7-e904b8b674e0" />
+      <Telemetry>
+        <PreviousWorkflowId value="b749b6b5-b730-46a5-bbbe-9506f17f8fc5" />
+        <OriginWorkflowId value="b749b6b5-b730-46a5-bbbe-9506f17f8fc5" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

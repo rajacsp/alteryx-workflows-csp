@@ -11,6 +11,11 @@ import re
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 
 class MarkdownWorkflow:
@@ -217,6 +222,52 @@ class MarkdownToAirflowConverter:
     def __init__(self, workflow: MarkdownWorkflow):
         self.workflow = workflow
         self.dag_name = self._sanitize_name(self.workflow.workflow_name)
+    
+    def _is_llm_enhancement_enabled(self) -> bool:
+        """Check if LLM enhancement is enabled"""
+        enabled = os.getenv('ENABLE_LLM_ENHANCEMENT', 'false').lower()
+        return enabled in ['true', '1', 'yes', 'on']
+    
+    def _load_prompt_template(self, prompt_file: str) -> str:
+        """Load prompt template from file"""
+        prompt_path = Path(__file__).parent / 'prompts' / prompt_file
+        try:
+            with open(prompt_path, 'r', encoding='utf-8') as f:
+                return f.read()
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Prompt template not found: {prompt_path}")
+    
+    def _enhance_with_llm(self, dag_code: str) -> str:
+        """Enhance Airflow DAG code with LLM"""
+        if not self._is_llm_enhancement_enabled():
+            return dag_code
+        
+        try:
+            from llm import get_llm
+            
+            print(f"🤖 Enhancing Airflow DAG code with LLM...")
+            
+            llm = get_llm()
+            
+            # Load prompt template
+            prompt_template = self._load_prompt_template('enhance_airflow_dag.txt')
+            prompt = prompt_template.format(dag_code=dag_code)
+            
+            response = llm.invoke(prompt)
+            enhanced_code = response.content if hasattr(response, 'content') else str(response)
+            
+            # Extract code from markdown code blocks if LLM wrapped it
+            code_match = re.search(r'```python\s*\n(.*?)\n```', enhanced_code, re.DOTALL)
+            if code_match:
+                enhanced_code = code_match.group(1)
+            
+            print(f"✅ LLM enhancement completed for Airflow DAG")
+            return enhanced_code
+            
+        except Exception as e:
+            print(f"⚠️  LLM enhancement failed: {e}")
+            print(f"📝 Using original DAG code")
+            return dag_code
         
     def _sanitize_name(self, name: str) -> str:
         """Convert name to valid Python identifier"""
@@ -228,6 +279,9 @@ class MarkdownToAirflowConverter:
         dag_code += self._generate_tasks()
         dag_code += self._generate_dependencies()
         dag_code += self._generate_dag_footer()
+        
+        # Apply LLM enhancement if enabled
+        dag_code = self._enhance_with_llm(dag_code)
         
         return dag_code
     
@@ -697,10 +751,26 @@ def convert_all_md_in_directory(directory: str, output_dir: Optional[str] = None
 if __name__ == '__main__':
     import sys
     
-    if len(sys.argv) < 2:
-        print("Usage: python md2af.py <markdown_file> [output_file]")
-        print("       python md2af.py --all <directory> [output_directory]")
-        sys.exit(1)
+    if len(sys.argv) < 2 or sys.argv[1] in ['--help', '-h', 'help']:
+        print("Markdown to Airflow DAG Converter")
+        print("=" * 60)
+        print("\nConverts Markdown documentation (with Mermaid diagrams) into")
+        print("Apache Airflow DAG Python files.")
+        print("\nUsage:")
+        print("  Single file:")
+        print("    python md2af.py <markdown_file> [output_file]")
+        print("")
+        print("  All files in directory:")
+        print("    python md2af.py --all <directory> [output_directory]")
+        print("")
+        print("Environment Variables:")
+        print("  ENABLE_LLM_ENHANCEMENT=true   Enable LLM enhancement of DAG code")
+        print("")
+        print("Examples:")
+        print("  python md2af.py workflow.md")
+        print("  python md2af.py workflow.md workflow_dag.py")
+        print("  python md2af.py --all ./docs ./dags")
+        sys.exit(0)
     
     if sys.argv[1] == '--all':
         if len(sys.argv) < 3:

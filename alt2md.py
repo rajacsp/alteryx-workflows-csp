@@ -12,6 +12,10 @@ import os
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 
 class AlteryxNode:
@@ -223,6 +227,47 @@ class AlteryxToMarkdownConverter:
     
     def __init__(self, workflow: AlteryxWorkflow):
         self.workflow = workflow
+    
+    def _is_llm_enhancement_enabled(self) -> bool:
+        """Check if LLM enhancement is enabled"""
+        enabled = os.getenv('ENABLE_LLM_ENHANCEMENT', 'false').lower()
+        return enabled in ['true', '1', 'yes', 'on']
+    
+    def _load_prompt_template(self, prompt_file: str) -> str:
+        """Load prompt template from file"""
+        prompt_path = Path(__file__).parent / 'prompts' / prompt_file
+        try:
+            with open(prompt_path, 'r', encoding='utf-8') as f:
+                return f.read()
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Prompt template not found: {prompt_path}")
+    
+    def _enhance_with_llm(self, md_content: str) -> str:
+        """Enhance markdown content with LLM"""
+        if not self._is_llm_enhancement_enabled():
+            return md_content
+        
+        try:
+            from llm import get_llm
+            
+            print(f"🤖 Enhancing markdown documentation with LLM...")
+            
+            llm = get_llm()
+            
+            # Load prompt template
+            prompt_template = self._load_prompt_template('enhance_markdown.txt')
+            prompt = prompt_template.format(md_content=md_content)
+            
+            response = llm.invoke(prompt)
+            enhanced_content = response.content if hasattr(response, 'content') else str(response)
+            
+            print(f"✅ LLM enhancement completed for markdown")
+            return enhanced_content
+            
+        except Exception as e:
+            print(f"⚠️  LLM enhancement failed: {e}")
+            print(f"📝 Using original markdown")
+            return md_content
         
     def convert(self) -> str:
         """Convert workflow to Markdown"""
@@ -232,6 +277,9 @@ class AlteryxToMarkdownConverter:
         md += self._generate_tool_details()
         md += self._generate_data_flow()
         md += self._generate_footer()
+        
+        # Apply LLM enhancement if enabled
+        md = self._enhance_with_llm(md)
         
         return md
     
@@ -668,10 +716,26 @@ def convert_all_yxmd_in_directory(directory: str, output_dir: Optional[str] = No
 if __name__ == '__main__':
     import sys
     
-    if len(sys.argv) < 2:
-        print("Usage: python alt2md.py <yxmd_file> [output_file]")
-        print("       python alt2md.py --all <directory> [output_directory]")
-        sys.exit(1)
+    if len(sys.argv) < 2 or sys.argv[1] in ['--help', '-h', 'help']:
+        print("Alteryx to Markdown Converter")
+        print("=" * 60)
+        print("\nConverts Alteryx workflow files (.yxmd) into Markdown documentation")
+        print("with Mermaid flowchart diagrams for visualization.")
+        print("\nUsage:")
+        print("  Single file:")
+        print("    python alt2md.py <yxmd_file> [output_file]")
+        print("")
+        print("  All files in directory:")
+        print("    python alt2md.py --all <directory> [output_directory]")
+        print("")
+        print("Environment Variables:")
+        print("  ENABLE_LLM_ENHANCEMENT=true   Enable LLM enhancement of markdown")
+        print("")
+        print("Examples:")
+        print("  python alt2md.py workflow.yxmd")
+        print("  python alt2md.py workflow.yxmd output.md")
+        print("  python alt2md.py --all ./workflows ./docs")
+        sys.exit(0)
     
     if sys.argv[1] == '--all':
         if len(sys.argv) < 3:

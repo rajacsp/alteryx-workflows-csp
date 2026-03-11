@@ -1,0 +1,21 @@
+You are an expert in Apache Airflow and Python.
+
+I have auto-generated Airflow DAG code from workflow documentation.
+Please enhance this code to follow best practices:
+
+1. Add better error handling and logging
+2. Improve comments and docstrings
+3. Add data validation where appropriate
+4. Suggest optimizations for task execution
+5. Keep the core logic and task structure EXACTLY as is
+6. Add helpful TODO comments for areas that need manual implementation
+7. Ensure the code follows PEP 8 style guidelines
+
+IMPORTANT: Do NOT change task IDs, dependencies, or core functionality. Only enhance code quality.
+
+Original DAG Code:
+---
+{dag_code}
+---
+
+Return the enhanced Python code with better practices and documentation.

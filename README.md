@@ -145,3 +145,7 @@ This repository is licensed under the [MIT License](LICENSE). Feel free to use, 
 For any inquiries or further assistance, please contact [nanditasharma182@gmail.com].
 
 Thank you for using our Alteryx workflows! We hope they streamline your data processing and analysis tasks effectively. Happy workflow building!
+
+
+## Screenshots
+![1773203790864](image/README/1773203790864.png)
