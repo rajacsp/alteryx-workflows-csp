@@ -13,32 +13,22 @@ In this repository, you will find:
 
 ## Workflow Conversion Tools
 
-This repository includes three conversion tools for different workflows:
+This repository includes a 2-step conversion pipeline with optional LLM enhancement:
 
-### 1. Alteryx to Airflow DAG (`alterxy2airflow.py`)
-
-Directly converts Alteryx `.yxmd` files to Apache Airflow DAG Python files.
-
-**Usage:**
-```bash
-# Convert a single workflow
-python alterxy2airflow.py "Accident Workflow.yxmd" "accident_dag.py"
-
-# Convert all workflows in a directory
-python alterxy2airflow.py --all "." "output/dags"
-```
-
-### 2. Alteryx to Markdown (`alt2md.py`)
+### Step 1: Alteryx to Markdown (`alt2md.py`)
 
 Converts Alteryx `.yxmd` files to Markdown documentation with Mermaid flowchart diagrams.
 
 **Usage:**
 ```bash
 # Convert a single workflow to markdown
-python alt2md.py "Accident Workflow.yxmd" "accident_workflow.md"
+python alt2md.py sample.yxmd sample.md
 
 # Convert all workflows in a directory
 python alt2md.py --all "." "docs"
+
+# Show help
+python alt2md.py --help
 ```
 
 **Output:** Generates comprehensive documentation including:
@@ -47,38 +37,72 @@ python alt2md.py --all "." "docs"
 - Detailed tool configurations
 - Data flow analysis
 
-### 3. Markdown to Airflow DAG (`md2af.py`)
+### Step 2: Markdown to Airflow DAG (`md2af.py`)
 
 Converts Markdown documentation (with Mermaid diagrams) to Apache Airflow DAG Python files.
 
 **Usage:**
 ```bash
 # Convert a single markdown file
-python md2af.py "accident_workflow.md" "accident_dag.py"
+python md2af.py sample.md sample_dag.py
 
 # Convert all markdown files in a directory
 python md2af.py --all "docs" "output/dags"
+
+# Show help
+python md2af.py --help
 ```
 
 ### Complete Conversion Pipeline
 
-You can use these tools in sequence for a complete workflow:
+Use these tools in sequence for a complete workflow:
 
 ```bash
-# Step 1: Convert Alteryx to Markdown (for documentation/review)
-python alt2md.py "Ted talk Workflow.yxmd" "ted_talk.md"
+# Step 1: Convert Alteryx to Markdown
+python alt2md.py sample.yxmd sample.md
 
-# Step 2: Review and edit the markdown if needed
-# (Edit ted_talk.md to add notes, modify configurations, etc.)
-
-# Step 3: Convert Markdown to Airflow DAG
-python md2af.py "ted_talk.md" "ted_talk_dag.py"
+# Step 2: Convert Markdown to Airflow DAG
+python md2af.py sample.md sample_dag.py
 ```
 
-Or convert directly:
+### LLM Enhancement (Optional)
+
+Enable AI-powered enhancement of your conversions by setting the environment variable:
+
 ```bash
-# Direct conversion: Alteryx to Airflow
-python alterxy2airflow.py "Ted talk Workflow.yxmd" "ted_talk_dag.py"
+# In your .env file
+ENABLE_LLM_ENHANCEMENT=true
+```
+
+When enabled, the LLM will:
+- **In Step 1 (alt2md.py)**: Enhance markdown documentation with better descriptions, context, and insights
+- **In Step 2 (md2af.py)**: Improve Airflow DAG code with better error handling, logging, and best practices
+
+**Supported LLM Providers:**
+- Ollama (local)
+- OpenAI (API key required)
+- Google Gemini (API key required)
+- llama.cpp (local server)
+
+Configure your provider in `.env`:
+```bash
+LLM_PROVIDER=llama.cpp
+LLAMA_CPP_URL=http://127.0.0.1:8080/v1
+```
+
+See `.env.sample` for all configuration options.
+
+### Legacy Tool: Direct Conversion (`alterxy2airflow.py`)
+
+Directly converts Alteryx `.yxmd` files to Apache Airflow DAG Python files (without markdown intermediate step).
+
+**Usage:**
+```bash
+# Convert a single workflow
+python alterxy2airflow.py "Accident Workflow.yxmd" "accident_dag.py"
+
+# Convert all workflows in a directory
+python alterxy2airflow.py --all "." "output/dags"
 ```
 
 ### Supported Alteryx Tools
