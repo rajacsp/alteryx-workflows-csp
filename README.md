@@ -11,6 +11,34 @@ In this repository, you will find:
 - **Documentation**: Guides, tutorials, and explanations on how to use, customize, and deploy the workflows.
 - **Scripts**: Any additional scripts or tools used alongside Alteryx workflows.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    A[Alteryx Workflow<br/>.yxmd] --> B[alt2md.py]
+    B --> C{LLM Enhancement<br/>Enabled?}
+    C -->|Yes| D[LLM Process<br/>Enhancer]
+    C -->|No| E[Markdown<br/>.md]
+    D --> E
+    E --> F[md2af.py]
+    F --> G{LLM Enhancement<br/>Enabled?}
+    G -->|Yes| H[LLM Process<br/>Enhancer]
+    G -->|No| I[Airflow DAG<br/>.py]
+    H --> I
+    
+    style A fill:#e1f5ff
+    style E fill:#fff4e1
+    style I fill:#e8f5e9
+    style D fill:#f3e5f5,stroke-dasharray: 5 5
+    style H fill:#f3e5f5,stroke-dasharray: 5 5
+    style C fill:#fff,stroke-dasharray: 5 5
+    style G fill:#fff,stroke-dasharray: 5 5
+```
+
+**Legend:**
+- Solid boxes: Required steps
+- Dashed boxes: Optional LLM enhancement (configurable via `.env`)
+
 ## Workflow Conversion Tools
 
 This repository includes a 2-step conversion pipeline with optional LLM enhancement:
